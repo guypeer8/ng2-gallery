@@ -1,0 +1,19 @@
+<nav aria-label="Page navigation">
+  <ul class="pagination pagination-lg">
+    <li>
+      <a href="#" aria-label="Previous" (click)="previous()" *ngIf="currentPage-1 > 0">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li *ngFor="let pageNumber of pageNumbers"
+        (click)="paginate(pageNumber)"
+        [class.active]="currentPage===pageNumber">
+      <a href="#">{{ pageNumber }}</a>
+    </li>
+    <li>
+      <a href="#" aria-label="Next" (click)="next()" *ngIf="currentPage < pageNumbers.length">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>

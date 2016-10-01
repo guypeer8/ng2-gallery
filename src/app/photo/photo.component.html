@@ -1,0 +1,13 @@
+<div class="col-xs-12 col-sm-6 col-md-4 photo">
+  <div class="thumbnail">
+    <img src="{{ photo.url }}" alt="{{ photo.title }}" title="{{ photo.title }}" (click)="startSlideShow(photo)" />
+    <div class="caption">
+      <h4>{{ photo.title }}</h4>
+      <h5>{{ photo.date | date }}</h5>
+      <p>
+        <button class="btn btn-primary" role="button" (click)="startSlideShow(photo)">View</button>
+        <button class="btn btn-danger" role="button" (click)="deletePhoto(photo)">Delete</button>
+      </p>
+    </div>
+  </div>
+</div>

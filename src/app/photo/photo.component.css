@@ -1,0 +1,9 @@
+.photo .thumbnail > img {
+  height: 420px;
+}
+.photo .thumbnail > img:hover {
+  cursor: pointer;
+}
+.photo .caption {
+  min-height: 150px;
+}

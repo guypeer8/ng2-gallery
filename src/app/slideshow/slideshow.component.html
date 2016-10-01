@@ -1,0 +1,7 @@
+<div *ngIf="isSlideShow">
+  <div class="overlay" (click)="stopSlideShow()">
+    <span class="glyphicon glyphicon-chevron-left" (click)="previous($event)"></span>
+    <span class="glyphicon glyphicon-chevron-right" (click)="next($event)"></span>
+  </div>
+  <img src="{{ url }}" title="{{ title }}" alt="{{ title }}" />
+</div>

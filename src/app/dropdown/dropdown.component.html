@@ -1,0 +1,11 @@
+<div class="dropdown float-right">
+  <button class="btn btn-info btn-lg dropdown-toggle" (click)="showList=!showList">
+    <span>Images ({{ resultsPerPage }})</span>
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-list" rol="menu" *ngIf="showList">
+    <li *ngFor="let option of options" (click)="updateResultsPerPage(option)">
+      <a href="#">Show {{ option }}</a>
+    </li>
+  </ul>
+</div>

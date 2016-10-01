@@ -1,0 +1,10 @@
+<div class="input-group float-left">
+  <input
+    type="text"
+    placeholder="Search Title..."
+    class="form-control input-lg"
+    [(ngModel)]="searchQuery"
+    (keyup)="search()"
+    autofocus
+  />
+</div>

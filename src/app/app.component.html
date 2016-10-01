@@ -1,0 +1,42 @@
+<nav class="navbar navbar-inverse">
+  <div class="navbar-header">
+    <a href="#" class="navbar-brand">Angular2 Gallery</a>
+  </div>
+  <app-sort (sort)="onSort($event)" *ngIf="sorting"></app-sort>
+</nav>
+
+<div class="container-fluid">
+  <main class="jumbotron">
+    <div class="top">
+      <app-search (searchPhoto)="onSearch($event)" *ngIf="search"></app-search>
+      <app-dropdown [resultsPerPage]="resultsPerPage" (changeResults)="onChangeResults($event)"></app-dropdown>
+      <div class="clear"></div>
+    </div>
+
+    <div class="row">
+      <div *ngFor="let photo of appService.photos">
+        <app-photo
+          [photo]="photo"
+          (deleter)="onDelete($event)"
+          (slider)="onSlideShow($event)"
+        >
+        </app-photo>
+      </div>
+    </div>
+
+    <app-pagination
+      [photos]="staticPhotos"
+      [resultsPerPage]="resultsPerPage"
+      (paginator)="onPaginate($event)"
+      *ngIf="pagination"
+    >
+    </app-pagination>
+  </main>
+</div>
+
+<app-slideshow
+  (stopSlide)="onStopSlideShow()"
+  (nextSlide)="onNextSlide($event)"
+  (previousSlide)="onPreviousSlide($event)"
+>
+</app-slideshow>

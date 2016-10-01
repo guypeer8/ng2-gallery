@@ -1,0 +1,27 @@
+.dropdown {
+  position: relative;
+}
+.dropdown .dropdown-list {
+  list-style-type: none;
+  position: absolute;
+  top: 45px;
+  background: #2f2f2f;
+  color: white;
+  cursor: pointer;
+  z-index: 1;
+  padding:0;
+  width: 100%;
+}
+.dropdown .dropdown-list li {
+  border-bottom:1px solid black;
+  padding:12px;
+}
+.dropdown .dropdown-list li:hover {
+  opacity:0.8;
+}
+.dropdown .btn.btn-info {
+  -webkit-border-radius:0;
+  -moz-border-radius:0;
+  border-radius:0;
+}
+

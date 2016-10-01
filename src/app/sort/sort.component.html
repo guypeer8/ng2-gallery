@@ -1,0 +1,11 @@
+<div class="dropdown">
+  <button class="btn btn-default btn-md dropdown-toggle" (click)="showList=!showList">
+    <span>Sort By</span>
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-list" rol="menu" *ngIf="showList">
+    <li *ngFor="let option of options" (click)="sortBy(option)">
+      <a href="#">{{ option }}</a>
+    </li>
+  </ul>
+</div>
