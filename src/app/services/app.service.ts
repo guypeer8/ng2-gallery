@@ -10,11 +10,13 @@ export class AppService {
 
   constructor(private http: Http) { }
 
-  getPhotos(feed: string): void {
+  getPhotos(feed: string, setStaticPhotosCallback): void {
     const aPromise = this.http.get(feed).map((rsp: Response) => rsp.json()).toPromise();
-    aPromise.then(photosJSON => {
-      this.photos = this.hideDeleted(photosJSON);
-    });
+    aPromise
+      .then(photosJSON => {
+        this.photos = this.hideDeleted(photosJSON);
+        setStaticPhotosCallback(this.photos);
+      });
   }
 
   private hideDeleted(photos: Photo[]): Photo[] {

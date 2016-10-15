@@ -19,7 +19,7 @@ export class AppComponent {
   autoRotate: number = 4;
 
   staticPhotos: Photo[] = []; // keep list of static photos
-  timeout; // timeout variable to set and clear timeout
+  timeout: any; // timeout variable to set and clear timeout
 
   constructor(public appService: AppService) {}
 
@@ -27,8 +27,12 @@ export class AppComponent {
   @ViewChild(SlideshowComponent) slideshowComponent: SlideshowComponent;
 
   ngOnInit() {
-    this.appService.getPhotos(this.feed);
-    setTimeout(() => this.staticPhotos = this.appService.photos.slice(), 0);
+    this.appService.getPhotos(
+      this.feed,
+      (photos) => {
+        this.staticPhotos = photos;
+      }
+    );
   }
 
   onPaginate(from: number): void {
@@ -79,7 +83,7 @@ export class AppComponent {
   }
 
   onSlideShow(photo: Photo): void {
-    let { url, title } = photo;
+    let { url, title } : { url: string, title: string } = photo;
     this.slideshowComponent.startSlideShow(url, title);
     let currentView: Photo[] = this.getCurrentView();
     let nextViewIndex: number = 0;

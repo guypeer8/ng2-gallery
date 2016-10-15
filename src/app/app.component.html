@@ -9,7 +9,11 @@
   <main class="jumbotron">
     <div class="top">
       <app-search (searchPhoto)="onSearch($event)" *ngIf="search"></app-search>
-      <app-dropdown [resultsPerPage]="resultsPerPage" (changeResults)="onChangeResults($event)"></app-dropdown>
+      <app-dropdown
+        [resultsPerPage]="resultsPerPage"
+        (changeResults)="onChangeResults($event)"
+      >
+      </app-dropdown>
       <div class="clear"></div>
     </div>
 

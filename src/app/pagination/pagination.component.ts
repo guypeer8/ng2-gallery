@@ -13,8 +13,6 @@ import { Photo } from '../shared/models/photo';
   pageNumbers: number[] = [];
   currentPage: number = 1;
 
-  constructor() { }
-
   ngOnInit() {
     setTimeout(() => this.createPaginationArray(), 0);
   }
@@ -31,7 +29,7 @@ import { Photo } from '../shared/models/photo';
 
   paginate(pageNumber: number = 1): void {
     this.currentPage = pageNumber;
-    let from = (this.currentPage - 1) * this.resultsPerPage;
+    let from: number = (this.currentPage - 1) * this.resultsPerPage;
     this.paginator.emit(from);
   }
 

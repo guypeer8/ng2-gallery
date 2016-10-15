@@ -7,7 +7,7 @@
     </li>
     <li *ngFor="let pageNumber of pageNumbers"
         (click)="paginate(pageNumber)"
-        [class.active]="currentPage===pageNumber">
+        [class.active]="currentPage === pageNumber">
       <a href="#">{{ pageNumber }}</a>
     </li>
     <li>
